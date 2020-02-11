@@ -1,17 +1,40 @@
 from django.contrib import admin
-from .models import Profile
+from django.contrib.auth.admin import UserAdmin
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import CustomUser
 
 
-from django.contrib.auth.models import User
-# Register your models here.
+class CustomUserAdmin(UserAdmin):
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
+    model = CustomUser
+    list_display = ('email', 'is_staff', 'is_active',)
+    list_filter = ('email', 'is_staff', 'is_active',)
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        ('Personal info', {'fields': (
+            'last_name',
+            'first_name',
+            'middle_name',
+            'phone',
+            'address',
+            'birth_to_day',
+            'avatar',
+            'image_tag',
+            'position'
+        )}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
 
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'middle_name', 'date_of_birth', 'photo']
+            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
+        ),
+    )
+    readonly_fields = ['image_tag']
+    search_fields = ('email',)
+    ordering = ('email',)
 
-@admin.register(User)
-class MyUserAdmin(admin.ModelAdmin):
-    list_display = ['email', 'first_name', 'user.profile.middle_name' 'last_name', 'is_active', 'last_login']
 
-#admin.site.unregister(User)
-#admin.site.register(User, MyUserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)
