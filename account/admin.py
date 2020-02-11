@@ -9,7 +9,7 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = CustomUser
     list_per_page = 15
-    list_display = ('get_short_name', 'phone','image_thumblr', 'email', 'is_staff', 'is_active',)
+    list_display = ('get_short_name', 'phone', 'image_thumblr', 'email', 'is_staff', 'is_active',)
     list_filter = ('email', 'is_staff', 'is_active',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -31,7 +31,7 @@ class CustomUserAdmin(UserAdmin):
             'classes': ('wide',),
 
             'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
-        ),
+         ),
     )
     readonly_fields = ['image_tag']
     search_fields = ('email',)
