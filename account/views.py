@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
 # Create your views here.
 
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -13,8 +14,8 @@ def user_login(request):
             cd = form.cleaned_data
             user = authenticate(
                 request,
-                username = cd['username'],
-                password = cd['password']
+                username=cd['username'],
+                password=cd['password']
             )
 
         if user is not None:
@@ -28,6 +29,7 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form':form})
+
 
 @login_required
 def dashboard(request):

@@ -30,14 +30,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = ['account.apps.AccountConfig',
+INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'mptt',
+    'django_mptt_admin',
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +136,6 @@ LOGOUT_URL = 'logout'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+# default is 10 pixels
+MPTT_ADMIN_LEVEL_INDENT = 20

@@ -78,6 +78,8 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
+
     class Meta:
+        ordering = ('last_name',)
         verbose_name = _('user')
         verbose_name_plural = _('users')
