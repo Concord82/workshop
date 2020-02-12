@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object model="products.productscategory" pk="1">
+        <field name="name" type="CharField">Шторная фурнитура</field>
+        <field name="url_slug" type="SlugField">shtornaya-furnitura</field>
+        <field name="parent" rel="ManyToOneRel" to="products.productscategory">
+            <None></None>
+        </field>
+        <field name="lft" type="PositiveIntegerField">1</field>
+        <field name="rght" type="PositiveIntegerField">4</field>
+        <field name="tree_id" type="PositiveIntegerField">1</field>
+        <field name="level" type="PositiveIntegerField">0</field>
+    </object>
+    <object model="products.productscategory" pk="2">
+        <field name="name" type="CharField">Швейная фурнитура</field>
+        <field name="url_slug" type="SlugField">shvejnaya-furnitura</field>
+        <field name="parent" rel="ManyToOneRel" to="products.productscategory">
+            <None></None>
+        </field>
+        <field name="lft" type="PositiveIntegerField">1</field>
+        <field name="rght" type="PositiveIntegerField">6</field>
+        <field name="tree_id" type="PositiveIntegerField">2</field>
+        <field name="level" type="PositiveIntegerField">0</field>
+    </object>
+    <object model="products.productscategory" pk="3">
+        <field name="name" type="CharField">Замки молнии</field>
+        <field name="url_slug" type="SlugField">zamki-molnii</field>
+        <field name="parent" rel="ManyToOneRel" to="products.productscategory">2</field>
+        <field name="lft" type="PositiveIntegerField">4</field>
+        <field name="rght" type="PositiveIntegerField">5</field>
+        <field name="tree_id" type="PositiveIntegerField">2</field>
+        <field name="level" type="PositiveIntegerField">1</field>
+    </object>
+    <object model="products.productscategory" pk="4">
+        <field name="name" type="CharField">Пуговицы</field>
+        <field name="url_slug" type="SlugField">pugovitsyi</field>
+        <field name="parent" rel="ManyToOneRel" to="products.productscategory">2</field>
+        <field name="lft" type="PositiveIntegerField">2</field>
+        <field name="rght" type="PositiveIntegerField">3</field>
+        <field name="tree_id" type="PositiveIntegerField">2</field>
+        <field name="level" type="PositiveIntegerField">1</field>
+    </object>
+    <object model="products.productscategory" pk="5">
+        <field name="name" type="CharField">Сторона</field>
+        <field name="url_slug" type="SlugField">storona</field>
+        <field name="parent" rel="ManyToOneRel" to="products.productscategory">1</field>
+        <field name="lft" type="PositiveIntegerField">2</field>
+        <field name="rght" type="PositiveIntegerField">3</field>
+        <field name="tree_id" type="PositiveIntegerField">1</field>
+        <field name="level" type="PositiveIntegerField">1</field>
+    </object>
+    <object model="products.products" pk="1">
+        <field name="name" type="CharField">пуговица</field>
+        <field name="slug" type="SlugField">pugovica</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">90.00</field>
+        <field name="available" type="BooleanField">True</field>
+        <field name="created" type="DateTimeField">2020-02-12T09:47:12.278562+00:00</field>
+        <field name="updated" type="DateTimeField">2020-02-12T09:50:03.839793+00:00</field>
+        <field name="category" rel="ManyToOneRel" to="products.productscategory">4</field>
+        <field name="image" type="FileField">products/2020/02/12/furnitura.png</field>
+        <field name="vendor_code" type="CharField"></field>
+        <field name="unit" type="IntegerField">1</field>
+    </object>
+</django-objects>
