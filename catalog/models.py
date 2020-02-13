@@ -1,5 +1,6 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
+from django.urls import reverse
 from django.utils.html import mark_safe
 from django.utils.translation import ugettext_lazy as _
 # Create your models here.
@@ -10,6 +11,9 @@ class Category(MPTTModel):
     name = models.CharField(_('name'), max_length=50, db_index=True)
     url_slug = models.SlugField(_('slug'), max_length=200, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    def get_absolute_url(self):
+        return reverse('catalog:product_list_by_category', args=[self.url_slug])
 
     def __str__(self):
         return self.name
@@ -43,6 +47,9 @@ class ProductsServices(models.Model):
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), auto_now=True)
 
+    def get_absoluete_url(self):
+        return reverse('catalog:product_detail', args=[self.id, self.slug])
+
     class Meta:
         abstract = True
 
@@ -58,7 +65,7 @@ class Products(ProductsServices):
     )
     category = models.ForeignKey(ProductsCategory, verbose_name=_('Product Category'), related_name='Product_Category',
                                  on_delete=models.CASCADE)
-    image = models.ImageField(_('Image'), upload_to='products/%Y/%m-%d', blank=True)
+    image = models.ImageField(_('Image'), upload_to='products/%Y/%m-%d', default='../static/images/avatar/unnamed.jpg')
     vendor_code = models.CharField(_('Vendor Code'), max_length=32, blank=True)
     unit = models.IntegerField(_('Unit'), choices=UNIT_CHOISE)
 

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     'django_mptt_admin',
-    'products.apps.ProductsConfig',
+    'catalog.apps.CatalogConfig',
 ]
 
 MIDDLEWARE = [
