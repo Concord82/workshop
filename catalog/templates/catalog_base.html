@@ -2,132 +2,122 @@
 {% load mptt_tags %}
 
 {% block css %}
-{{ block.super }}
+    {{ block.super }}
     <style>
-        #main-menu {
-            background-color: #2E3039;
-        }
+       .dropdown-submenu {
+           position: relative;
+       }
+       .dropdown-submenu>a:after {
+           content: "\f0da";
+           float: right;
+           border: none;
+           font-family: 'FontAwesome';
+       }
 
-        .list-group-item {
-            background-color: #2E3039;
-            border: none;
-        }
-
-        a.list-group-item {
-            color: #FFF;
-        }
-
-        a.list-group-item:hover,
-        a.list-group-item:focus {
-            background-color: #43D5B1;
-        }
-
-        a.list-group-item.active,
-        a.list-group-item.active:hover,
-        a.list-group-item.active:focus {
-            color: #FFF;
-            background-color: #43D5B1;
-            border: none;
-        }
-
-        .list-group-item:first-child,
-        .list-group-item:last-child {
-            border-radius: 0;
-        }
-
-        .list-group-level1 .list-group-item {
-            padding-left:30px;
-        }
-
-        .list-group-level2 .list-group-item {
-            padding-left:60px;
-        }
+       .dropdown-submenu>.dropdown-menu {
+           top: 0;
+           /* left: 0%; */
+           margin-top: 30px;
+           margin-left: 0px;
+       }
     </style>
 {% endblock %}
+
+
 {% block content %}
-{% drilldown_tree_for_node categories as drilldown cumulative count catalog.ProductsCategory.id in ProductsCategory_count %}
 
-
-<!--
-
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
-            <div id="main-menu" class="list-group">
-                {% recursetree categories %}
-                    {% if node.is_root_node %}
-                        {% if node.is_leaf_node %}
-                            <a href="{{ node.get_absolute_url }}" class="list-group-item">{{ node.name }}</a>
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+
+                <ul class="nav flex-column ">
+                    {% recursetree categories %}
+                        {% if node.level == 0 %}
+                            {%if node.is_leaf_node %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ node.name }}</a>
+                            {% endif %}
                         {% else %}
-                            <a href="#sub-menu" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu">
-                                {{ node.name }}
-                                <span class="caret"></span>
-                            </a>
-
-
+                            {%if node.is_leaf_node %}
+                                <li><a href="{{ node.get_absolute_url }}" class="dropdown-item">{{ node.name }}</a></li>
+                            {% else %}
+                                <li class="dropdown-submenu">
+                                <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ node.name }}</a>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endrecursetree %}
-            </div>
-        </div>
-    </div>
-
-        <li class="nav flex-column">
-        {% recursetree categories %}
-
-                {% if node.is_root_node and node.is_leaf_node %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ node.get_absolute_url }}"> {{ node.name }} </a>
-                    </li>
-                {% elif node.is_child_node and node.is_leaf_node %}
-                    <a class="dropdown-item" href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-                {% else %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ node.name }}</a>
-                        <div class="dropdown-menu">
-                            {{ children }}
-                        </div>
-                    </li>
-                {% endif %}
-
-        {% endrecursetree %}
-    </li>
-
-    </div>
-
-
-                    <a class="btn btn__light" href="{{ node.get_absolute_url }}">
-                        <span style="flex: 1 1 auto;">{{ node.name }}</span>
                         {% if not node.is_leaf_node %}
-                            <span>&nbsp;</span>
-                            <span class="fa fa-angle-right"></span>
+                            <ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
+                                {{ children }}
+                            </ul>
                         {% endif %}
-                    </a>
-                    {% if not node.is_leaf_node %}
-                        <ul  class="site_nav_primary__submenu ul__column white_box">
-                            {{ children }}
-                        </ul>
-                    {% endif %}
-                </li>
+                        {% if not node.is_leaf_node%}
+                            </li>
+                        {% endif %}
+                    {% endrecursetree %}
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-8 ml-sm-auto col-lg-10 pt-3 px-4">
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div>
+          </div>
+
+        </main>
 
 
 
+    </div>
+</div>
 
 
 
-
-                    {% if not node.is_child_node %}
-
-                    {% elif node.is_leaf_node %}
-                        <a class="nav-link dropdown-toggle" href="{{ node.parent.get_absolute_url }}"
-                           data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-                            {{ node.parent.name }}
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-                        </div>
-                    {% endif %}
-                </li>-->
+{% endblock %}
 
 
 
+{% block script %}
+    {{ block.super }}
+    <script type="text/javascript">//<![CDATA[
+
+    window.onload=function() {
+
+
+        $(function () {
+            // ------------------------------------------------------- //
+            // Multi Level dropdowns
+            // ------------------------------------------------------ //
+            $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                $(this).siblings().toggleClass("show");
+
+
+                if (!$(this).next().hasClass('show')) {
+                    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+                }
+                $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                    $('.dropdown-submenu .show').removeClass("show");
+                });
+
+            });
+        });
+    }
+    </script>
 {% endblock %}
