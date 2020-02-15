@@ -7,6 +7,10 @@ def product_list(request, category_slug=None):
     category = None
     categories = ProductsCategory.objects.all()
 
+    cat_test = ProductsCategory.objects.get(id=1)
+    for prod in cat_test.get_children():
+        print(prod.name)
+
     if category_slug:
         category = get_object_or_404(ProductsCategory, slug=category_slug)
 

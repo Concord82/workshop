@@ -45,9 +45,28 @@
     </style>
 {% endblock %}
 {% block content %}
-{% drilldown_tree_for_node categories as drilldown cumulative count catalog.ProductsCategory.id in ProductsCategory_count %}
+    <div class="row">
+        <div class="col-md-3">
+            <div id="main-menu" class="list-group">
+                {% recursetree categories %}
+                    {% if node.is_root_node %}
+                        {% if node.is_leaf_node %}
+                            <a href="{{ node.get_absolute_url }}" class="list-group-item">{{ node.name }}</a>
+                        {% else  %}
+                            <a href="#sub-menu" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu">
+                                {{ node.name }}
+                                <span class="caret"></span>
+                            </a>{% endif %}
+                        {% else %}
+                            {% if node.is_first_child %}11111111111111111{% endif %}
+
+                        {% endif %}
 
 
+                {% endrecursetree %}
+            </div>
+        </div>
+    </div>
 <!--
 
     <div class="row">
