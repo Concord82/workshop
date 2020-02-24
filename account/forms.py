@@ -18,3 +18,7 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('email',)
+
+class WorkStationReg(forms.Form):
+    host = forms.CharField(required=False, widget = forms.TextInput(attrs={'readonly':'readonly'}))
+    ip_addres = forms.CharField(required=False, widget = forms.TextInput(attrs={'readonly':'readonly'}))

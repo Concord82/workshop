@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    {{block.super}} Регистрация рабочей станции
+{% endblock %}
+
+{% block content %}
+    <h3>офис: {{ office.name }}</h3>
+    {% if work_station %}
+        <p> Текущая станция уже зарегистрирована</p>
+        <p>Имя машины: {{ work_station.host }} </p>
+        <p>Аддресс: {{ work_station.ip_address }}</p>
+    {% else %}
+
+
+
+
+        <p>Параметры рабочей станции</p>
+
+        <form method="post" action="{% url 'user_station_reg' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="field">
+            <p class="control has-text-right">
+                <button class="button is-success">
+                    Login
+                </button>
+            </p>
+        </div>
+        </form>
+    {% endif %}
+
+
+{% endblock %}

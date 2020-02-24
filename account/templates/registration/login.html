@@ -1,19 +1,51 @@
 {% extends "_base.html" %}
-{% block title %}Log-in{% endblock %}
+{% block title %}{{ block.super }} Log-in{% endblock %}
 {% block content %}
-    <h1>Log-in</h1>
-    {% if form.errors %}
-        <p>Your username and password didn't match.Please try again.</p>
-    {% else %}
-        <p>Please, use the following form to log-in:</p>
-    {% endif %}
-    <form action="{% url 'login' %}" method="post">
-        <div class="form-group">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}" />
-            <p><input type="submit" value="Log-in"></p>
+    <div class="column is-4 is-offset-4">
+        <div class="container">
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>Вход</p>
+                </div>
+                <div class="message-body">
+                    {% if form.errors %}
+                        <p>Your username and password didn't match.Please try again.</p>
+                    {% endif %}
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label for="{{ form.username.id_for_label }}">E-Mail адрес:</label>
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="Email" name="{{ form.username.html_name }}" required id="{{ form.username.id_for_label }}" >
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.password.id_for_label }}">Пароль:</label>
+                            <p class="control has-icons-left">
+
+                                <input class="input" type="password" placeholder="Password" name="{{ form.password.html_name }}" required id="{{ form.password.id_for_label }}">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <p class="control has-text-right">
+                                <button class="button is-success">
+                                    Login
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </article>
         </div>
-    </form>
-    <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+    </div>
 {% endblock %}

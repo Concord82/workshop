@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% block title %}{{block.super}} Список офисов {% endblock %}
+{% block content %}
+    {% for office in offices_list %}
+        <div class="tile is-ancestor">
+            <div class="tile is-8 is-parent">
+                <article class="tile is-child">
+                    <strong class="level-left">{{ office.name }}</strong>
+                        <hr>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="tile is-3 is-parent">
+                <article class="tile is-child">
+                    <span class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                    {{ office.address }}
+                    <br>
+                    <span class="icon">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                    {{ office.get_phone_number }}
+                    <br>
+                    <span class="icon">
+                        <i class="fas fa-clock"></i>
+                    </span>
+                    {{ office.work_time_start }} - {{ office.work_time_end }}
+                </article>
+            </div>
+            <div class="tile is-5 is-parent">
+                <article class="tile is-child">
+                    {% autoescape off %}
+                        {{ office.twoGisCode }}
+                    {% endautoescape %}
+                </article>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

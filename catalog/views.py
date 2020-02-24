@@ -28,7 +28,7 @@ def product_list(request, category_slug=None):
 
     return render(
         request,
-        '_base_admin.html',
+        'old/_base_admin.html',
         {'category': category,
          'categories': categories}
     )

@@ -1,8 +1,25 @@
 {% extends "_base.html" %}
-{% block title %}Logged out{% endblock %}
+{% block title %}{{ block.super }} Logged out{% endblock %}
 {% block content %}
-    <h1>Logged out</h1>
-    <p>You have been successfully logged out.
-        You can <a href="{% url "login" %}">log-in again</a>.
-    </p>
+    <div class="column is-4 is-offset-4">
+        <div class="container">
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>Выход из системы</p>
+                </div>
+                <div class="message-body">
+                    <p>Вы успешно вышли из ситемы. Вы можете <a href="{% url "login" %}">войти снова</a>.</p>
+                </div>
+
+
+            </article>
+        </div>
+    </div>
+
+
+
+
+
+
+
 {% endblock %}

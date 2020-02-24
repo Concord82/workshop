@@ -1,0 +1,30 @@
+{% load account_tags %}
+<div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+        {% for office in offices_list %}
+            {% if office_id == office.id %}
+                {{ office.name }}
+            {% endif %}
+        {% endfor %}
+    </a>
+    <div class="navbar-dropdown">
+        {% for office in offices_list %}
+
+            <a class="navbar-item" href="{% url 'set_current_office'  office.id %}">
+                <span>
+                    {% if office_id == office.id %}
+
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    {% endif %}
+                    <strong>{{ office.name }}</strong>
+
+                </span>
+            </a>
+        {% endfor %}
+        <hr class="navbar-divider">
+        <a class="navbar-item" href="{% url 'offices_list' %}">Список офисов</a>
+
+    </div>
+</div>
