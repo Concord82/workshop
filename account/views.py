@@ -69,7 +69,7 @@ def user_station_reg(request):
                 host=request.META.get('REMOTE_HOST'),
                 ip_address=request.META.get('REMOTE_ADDR')
             )
-            return render(request, 'work_station_reg.html',{'work_station': work_station, 'office': current_office})
+            return render(request, 'work_station_reg.html',{'work_station': work_station})
 
         except work_station.DoesNotExist:
             data = {
