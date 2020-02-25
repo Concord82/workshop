@@ -16,7 +16,17 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="{% url 'dashboard' %}">Home</a>
-                <a class="navbar-item">Заказы</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Заказы</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'catalog:product_list' %}">Товары</a>
+                        <a class="navbar-item" href="{% url 'catalog:services' %}">Услуги</a>
+
+                    </div>
+                </div>
+
+
+
                 <a class="navbar-item">Клиенты</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Склад</a>

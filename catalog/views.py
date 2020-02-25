@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import ProductsCategory, Products
+from .models import ProductsCategory, Products, ServicesCategory
 # Create your views here.
 
 
@@ -33,5 +33,10 @@ def product_list(request, category_slug=None):
          'categories': categories}
     )
 
+
+def service_list(request):
+    services = ServicesCategory.objects.all()
+
+    return render(request, 'product_list.html', {'services': services})
 
 
