@@ -1,10 +1,11 @@
-{% extends "_base.html" %}current_office
+{% extends "_base.html" %}
 {% load account_tags %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
     <h1>Dashboard</h1>
     <p>Welcome to your dashboard.</p>
 
-
-    <p> {{ request.session.current_office|to_int }} </p>
+    {% if request.session.current_office %}
+        <p> {{ request.session.current_office|to_int }} </p>
+    {% endif %}
 {% endblock %}

@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+
 from .forms import LoginForm, WorkStationReg
 from .models import Offices, WorkStation
 # Create your views here.
@@ -51,8 +53,13 @@ def office_list(request):
     )
 
 
+@staff_member_required
 def user_station_reg(request):
-    current_office = Offices.objects.get(pk=request.session.get('current_office'))
+    try:
+        current_office = Offices.objects.get(pk=request.session.get('current_office'))
+    except Offices.DoesNotExist:
+        return render(request, 'work_station_reg.html',{'error': 'Для регистрации рабочей станции укажите текущий офис'})
+
     if request.method == 'POST':
         form = WorkStationReg(request.POST)
         if form.is_valid():

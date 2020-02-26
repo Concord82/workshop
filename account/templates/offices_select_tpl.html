@@ -1,11 +1,15 @@
 {% load account_tags %}
 <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-        {% for office in offices_list %}
-            {% if office_id == office.id %}
-                {{ office.name }}
-            {% endif %}
-        {% endfor %}
+        {% if office_id %}
+            {% for office in offices_list %}
+                {% if office_id == office.id %}
+                    {{ office.name }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            Офис не выбран
+        {% endif %}
     </a>
     <div class="navbar-dropdown">
         {% for office in offices_list %}

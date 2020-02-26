@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import ProductsCategory, Products, ServicesCategory
 # Create your views here.
 
@@ -33,7 +35,7 @@ def product_list(request, category_slug=None):
          'categories': categories}
     )
 
-
+@login_required
 def service_list(request):
     services = ServicesCategory.objects.all()
 

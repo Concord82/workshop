@@ -10,11 +10,14 @@
         <p> Текущая станция уже зарегистрирована</p>
         <p>Офис: {{ work_station.office.name }}</p>
         <p>Имя машины: {{ work_station.host }} </p>
-        <p>Аддресс: {{ work_station.ip_address }}</p>
-    {% else %}
-
-
-<h3>офис: {{ office.name }}</h3>
+        <p>Адрес: {{ work_station.ip_address }}</p>
+    {% elif error %}
+        <div class="notification is-danger">
+            <button class="delete"></button>
+            {{ error }}
+        </div>
+    {% elif form %}
+        <h3>офис: {{ office.name }}</h3>
 
         <p>Параметры рабочей станции</p>
 
