@@ -36,7 +36,7 @@ def product_list(request, category_slug=None):
     )
 
 @login_required
-def service_list(request):
+def service_list(request, services_slug=None):
     services = ServicesCategory.objects.all()
 
     return render(request, 'product_list.html', {'services': services})

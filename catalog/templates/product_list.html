@@ -8,6 +8,33 @@
         <aside class="menu">
             <p class="menu-label">Услуги</p>
         </aside>
+        <ul id="menu" class="menu">
+            {% recursetree services %}
+                {% if not node.is_leaf_node %}
+                    <li class="dropdown">
+                        <a href="{% url services 'node.slug' %}" >
+                            {{ node.name }}
+                            <span class="icon">
+                                <i class="fas fa-chevron-circle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-content">
+                            {{children}}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url services 'node.slug' %}">{{ node.name }}</a></li>
+                {% endif %}
+            {% endrecursetree %}
+        </ul>
+
+
+
+
+
+
+    <!--
+
         <ul class="menu-list">
             {% recursetree services %}
 
@@ -22,7 +49,7 @@
                 {% endif %}
 
             {% endrecursetree %}
-        </ul>
+        </ul>-->
 
 
 
@@ -31,22 +58,6 @@
 
 
     </div>
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-
-    <script>
-       $(document).ready(function() {
-           $("#nav1 li").hoverIntent(
-               function() {
-                   $(this).find('ul').slideDown();
-                   },
-               function() {
-                   $(this).find('ul').slideUp();
-               });
-       });
-    </script>
-
 
 
 
