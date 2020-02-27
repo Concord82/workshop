@@ -1,5 +1,5 @@
 Tracking file by folder pattern:  migrations
- dumpdata --exclude auth.permission --exclude contenttypes --indent 2  > db.json
+dumpdata --exclude auth.permission --exclude contenttypes --indent 2  > db.json
 [
 {
   "model": "account.offices",
@@ -42,14 +42,6 @@ Tracking file by folder pattern:  migrations
 },
 {
   "model": "sessions.session",
-  "pk": "1onr2nt0fgxjj0etae3srzc43u1fuugd",
-  "fields": {
-    "session_data": "NTY0MGYyYjY3ZjRlMjcxNTUzYjJmNzg0MWYwODc2NmVkYzE2NDJjMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkNWY3N2Q5MTE3YTZmYjUwNmM3ZDczNWIzYTA2NGVjMDcwMmM1ZGJmIn0=",
-    "expire_date": "2020-02-26T06:08:13.971Z"
-  }
-},
-{
-  "model": "sessions.session",
   "pk": "521v6ziabszglecrj5c7pzbqzkecmwvz",
   "fields": {
     "session_data": "YTJiMzJkM2QxYWQ1MDAwMmNlOTE3MGQ1OGUzYjM3ZjM1OTI0MzU1Mzp7fQ==",
@@ -65,11 +57,45 @@ Tracking file by folder pattern:  migrations
   }
 },
 {
+  "model": "sessions.session",
+  "pk": "ivmrzokt657fd6740dcy45xo7sxo4axv",
+  "fields": {
+    "session_data": "ZTExOWZlMjc5YTE1NmU3MGY2OTZiNjEyNmZkMWVlYWY4OWY4ZGY4Njp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0NDFiYjFlYjQzZThjNjVlOGVlMjgxYTI3NTYwYjg4NDdmMGRkMjBlIiwiY3VycmVudF9vZmZpY2UiOjF9",
+    "expire_date": "2020-03-11T02:25:44.874Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "j93ekkyxt1wjnkxtpgh4gga97lpgsiqr",
+  "fields": {
+    "session_data": "ZTExOWZlMjc5YTE1NmU3MGY2OTZiNjEyNmZkMWVlYWY4OWY4ZGY4Njp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0NDFiYjFlYjQzZThjNjVlOGVlMjgxYTI3NTYwYjg4NDdmMGRkMjBlIiwiY3VycmVudF9vZmZpY2UiOjF9",
+    "expire_date": "2020-03-11T07:59:26.895Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "thmrn7t54yeaoyg4kta5k0fg31xybeed",
+  "fields": {
+    "session_data": "NTY0MGYyYjY3ZjRlMjcxNTUzYjJmNzg0MWYwODc2NmVkYzE2NDJjMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkNWY3N2Q5MTE3YTZmYjUwNmM3ZDczNWIzYTA2NGVjMDcwMmM1ZGJmIn0=",
+    "expire_date": "2020-02-25T15:05:36.122Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zfpq7w4l0robwpkonxnfq7awyajglikc",
+  "fields": {
+    "session_data": "MzA2ZmNjYzI3N2Q3YzMwMWEwZmQyNGI0ZTE5OGIzMGM1N2Y3OGFlOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0NDFiYjFlYjQzZThjNjVlOGVlMjgxYTI3NTYwYjg4NDdmMGRkMjBlIiwiY3VycmVudF9vZmZpY2UiOjJ9",
+    "expire_date": "2020-03-11T08:00:29.959Z"
+  }
+},
+{
   "model": "catalog.productscategory",
   "pk": 1,
   "fields": {
     "name": "\u0428\u0432\u0435\u0439\u043d\u0430\u044f \u0444\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430",
     "url_slug": "shvejnaya-furnitura",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 32,
@@ -83,6 +109,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0427\u0430\u0448\u0435\u0447\u043a\u0438 \u0438 \u0432\u043a\u043b\u0430\u0434\u044b\u0448\u0438",
     "url_slug": "chashechki-i-vkladyshi",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 24,
     "lft": 4,
     "rght": 5,
@@ -96,6 +124,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041a\u043e\u0441\u0442\u043e\u0447\u043a\u0438",
     "url_slug": "kostochki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 24,
     "lft": 8,
     "rght": 9,
@@ -109,6 +139,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0411\u0440\u0435\u0442\u0435\u043b\u044c\u043a\u0438",
     "url_slug": "bretelki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 24,
     "lft": 2,
     "rght": 3,
@@ -122,6 +154,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0423\u0434\u043b\u0438\u043d\u0438\u0442\u0435\u043b\u0438 \u0437\u0430\u0441\u0442\u0435\u0436\u043a\u0438 \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u0430\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b",
     "url_slug": "udliniteli-zastezhki-i-drugie-aksessuary",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 24,
     "lft": 6,
     "rght": 7,
@@ -135,6 +169,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0410\u0442\u043b\u0430\u0441\u043d\u0430\u044f \u043b\u0435\u043d\u0442\u0430",
     "url_slug": "atlasnaya-lenta",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 2,
     "rght": 3,
@@ -148,6 +184,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 4,
     "rght": 23,
@@ -161,6 +199,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0414\u0432\u0443\u0445\u0437\u0430\u043c\u043a\u043e\u0432\u044b\u0435 \u043c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "dvuhzamkovye-molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 10,
     "lft": 6,
     "rght": 7,
@@ -174,6 +214,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041f\u043b\u0430\u0441\u0442\u0438\u043a\u043e\u0432\u044b\u0435 \u043c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "plastikovye-molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 8,
     "lft": 5,
     "rght": 14,
@@ -187,6 +229,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041c\u043e\u043b\u043d\u0438\u0438 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0435 \u043d\u0435\u0440\u0430\u0437\u044a\u0435\u043c\u043d\u044b\u0435",
     "url_slug": "molnii-standartnye-nerazemnye",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 10,
     "lft": 8,
     "rght": 9,
@@ -200,6 +244,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041c\u043e\u043b\u043d\u0438\u0438 \u043f\u043e\u0442\u0430\u0439\u043d\u044b\u0435 \u043d\u0435\u0440\u0430\u0437\u044a\u0435\u043c\u043d\u044b\u0435",
     "url_slug": "molnii-potajnye-nerazemnye",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 10,
     "lft": 10,
     "rght": 11,
@@ -213,6 +259,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041c\u043e\u043b\u043d\u0438\u0438 \u0441 \u0438\u0437\u043d\u0430\u043d\u043e\u0447\u043d\u043e\u0439 \u0441\u043f\u0438\u0440\u0430\u043b\u044c\u044e \u043d\u0435\u0440\u0430\u0437\u044a\u0435\u043c\u043d\u044b\u0435",
     "url_slug": "molnii-s-iznanochnoj-spiralyu-nerazemnye",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 10,
     "lft": 12,
     "rght": 13,
@@ -226,6 +274,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041c\u0435\u0442\u0430\u043b\u043b\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "metallicheskie-molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 8,
     "lft": 15,
     "rght": 20,
@@ -239,6 +289,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041d\u0435\u0440\u0430\u0437\u044a\u0435\u043c\u043d\u044b\u0435 \u043c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "nerazemnye-molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 14,
     "lft": 16,
     "rght": 17,
@@ -252,6 +304,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0420\u0430\u0437\u044a\u0435\u043c\u043d\u044b\u0435 \u043c\u043e\u043b\u043d\u0438\u0438",
     "url_slug": "razemnye-molnii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 14,
     "lft": 18,
     "rght": 19,
@@ -265,6 +319,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u042f\u0437\u044b\u0447\u043a\u0438 \u0434\u043b\u044f \u043c\u043e\u043b\u043d\u0438\u0439",
     "url_slug": "yazychki-dlya-molnij",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 8,
     "lft": 21,
     "rght": 22,
@@ -278,6 +334,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041f\u043b\u0435\u0447\u0438\u043a\u0438",
     "url_slug": "plechiki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 24,
     "rght": 25,
@@ -291,6 +349,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041f\u043e\u0434\u043c\u044b\u0448\u043d\u0438\u043a\u0438",
     "url_slug": "podmyshniki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 26,
     "rght": 27,
@@ -304,6 +364,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0420\u0435\u0437\u0438\u043d\u043a\u0430",
     "url_slug": "rezinka",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 28,
     "rght": 29,
@@ -317,6 +379,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0410\u043f\u043f\u043b\u0438\u043a\u0430\u0446\u0438\u0438",
     "url_slug": "applikacii",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 1,
     "lft": 30,
     "rght": 31,
@@ -330,6 +394,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0424\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430 \u0434\u043b\u044f \u0441\u0443\u043c\u043e\u043a \u0438 \u043e\u0431\u0443\u0432\u0438",
     "url_slug": "furnitura-dlya-sumok-i-obuvi",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 14,
@@ -343,6 +409,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0428\u0442\u043e\u0440\u043d\u0430\u044f \u0444\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430",
     "url_slug": "shtornaya-furnitura",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 2,
@@ -356,6 +424,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0411\u0435\u043b\u044c\u0435\u0432\u0430\u044f \u0444\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430",
     "url_slug": "belevaya-furnitura",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 10,
@@ -369,6 +439,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0422\u043a\u0430\u043d\u0438",
     "url_slug": "tkani",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 2,
@@ -382,6 +454,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0417\u0430\u0433\u043e\u0442\u043e\u0432\u043a\u0438 \u0434\u043b\u044f \u043a\u043b\u044e\u0447\u0435\u0439",
     "url_slug": "zagotovki-dlya-klyuchej",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": null,
     "lft": 1,
     "rght": 8,
@@ -395,6 +469,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0435",
     "url_slug": "avtomobilnye",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 26,
     "lft": 2,
     "rght": 3,
@@ -408,6 +484,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0435 \u043a\u043b\u044e\u0447\u0438",
     "url_slug": "anglijskie-klyuchi",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 26,
     "lft": 4,
     "rght": 5,
@@ -421,6 +499,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0434\u043b\u044f \u0434\u043e\u043c\u043e\u0444\u043e\u043d\u0430",
     "url_slug": "dlya-domofona",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 26,
     "lft": 6,
     "rght": 7,
@@ -434,6 +514,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0424\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430 \u0434\u043b\u044f \u043e\u0431\u0443\u0432\u0438",
     "url_slug": "furnitura-dlya-obuvi",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 22,
     "lft": 2,
     "rght": 7,
@@ -447,6 +529,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041d\u0430\u0431\u043e\u0439\u043a\u0438",
     "url_slug": "nabojki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 30,
     "lft": 3,
     "rght": 4,
@@ -460,6 +544,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041f\u0435\u0442\u043b\u0438 \u0434\u043b\u044f \u043e\u0431\u0443\u0432\u0438",
     "url_slug": "petli-dlya-obuvi",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 30,
     "lft": 5,
     "rght": 6,
@@ -473,6 +559,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0424\u0443\u0440\u043d\u0438\u0442\u0443\u0440\u0430 \u0434\u043b\u044f \u0441\u0443\u043c\u043e\u043a",
     "url_slug": "furnitura-dlya-sumok",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 22,
     "lft": 8,
     "rght": 13,
@@ -486,6 +574,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u0417\u0430\u043c\u043a\u0438",
     "url_slug": "zamki",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 33,
     "lft": 9,
     "rght": 10,
@@ -499,6 +589,8 @@ Tracking file by folder pattern:  migrations
   "fields": {
     "name": "\u041a\u0430\u0440\u0430\u0431\u0438\u043d\u044b",
     "url_slug": "karabiny",
+    "image": "../static/images/noimage.png",
+    "description": "",
     "parent": 33,
     "lft": 11,
     "rght": 12,
@@ -507,11 +599,131 @@ Tracking file by folder pattern:  migrations
   }
 },
 {
+  "model": "catalog.servicescategory",
+  "pk": 6,
+  "fields": {
+    "name": "\u0425\u0438\u043c. \u0447\u0438\u0441\u0442\u043a\u0430",
+    "url_slug": "him-chistka",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 3,
+    "level": 0
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 7,
+  "fields": {
+    "name": "\u0423\u0441\u043b\u0443\u0433\u0438 \u0430\u0442\u0435\u043b\u044c\u0435",
+    "url_slug": "uslugy-atelie",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 12,
+    "tree_id": 4,
+    "level": 0
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 8,
+  "fields": {
+    "name": "\u0420\u0435\u043c\u043e\u043d\u0442 \u0432\u0435\u0440\u0445\u043d\u0435\u0439 \u043e\u0434\u0435\u0436\u0434\u044b",
+    "url_slug": "remont-verchney-odegdy",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": 7,
+    "lft": 2,
+    "rght": 11,
+    "tree_id": 4,
+    "level": 1
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 9,
+  "fields": {
+    "name": "\u0418\u0437\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u043a\u043b\u044e\u0447\u0435\u0439",
+    "url_slug": "izgotovlenie-klyuchej",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": null,
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 5,
+    "level": 0
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 10,
+  "fields": {
+    "name": "\u0418\u0437\u0434\u0435\u043b\u0438\u044f \u0438\u0437 \u043a\u043e\u0436\u0438",
+    "url_slug": "izdeliya-iz-kozhi",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": 8,
+    "lft": 3,
+    "rght": 4,
+    "tree_id": 4,
+    "level": 2
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 11,
+  "fields": {
+    "name": "\u0418\u0437\u0434\u0435\u043b\u0438\u044f \u0438\u0437 \u043c\u0435\u0445\u0430",
+    "url_slug": "izdeliya-iz-meha",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": 8,
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 4,
+    "level": 2
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 12,
+  "fields": {
+    "name": "\u0413\u043e\u043b\u043e\u0432\u043d\u044b\u0435 \u0443\u0431\u043e\u0440\u044b",
+    "url_slug": "golovnye-ubory",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": 8,
+    "lft": 7,
+    "rght": 8,
+    "tree_id": 4,
+    "level": 2
+  }
+},
+{
+  "model": "catalog.servicescategory",
+  "pk": 13,
+  "fields": {
+    "name": "\u041f\u043e\u043a\u0440\u0430\u0441\u043a\u0430 \u0438\u0437\u0434\u0435\u043b\u0438\u0439 \u0438\u0437 \u043a\u043e\u0436\u0438",
+    "url_slug": "pokraska-izdelij-iz-kozhi",
+    "image": "../static/images/noimage.png",
+    "description": "",
+    "parent": 8,
+    "lft": 9,
+    "rght": 10,
+    "tree_id": 4,
+    "level": 2
+  }
+},
+{
   "model": "account.customuser",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$180000$DJpGxuyhf1ud$ctXKt4LWpilS8EmCV9fXkfkUBiVVBuIgN72fnC4j6g0=",
-    "last_login": "2020-02-23T12:23:20.514Z",
+    "last_login": "2020-02-26T08:00:22.469Z",
     "is_superuser": true,
     "first_name": "\u0418\u0432\u0430\u043d",
     "last_name": "\u0418\u0432\u0430\u043d\u043e\u0432",
@@ -1564,6 +1776,240 @@ Tracking file by folder pattern:  migrations
     "object_repr": "",
     "action_flag": 3,
     "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2020-02-26T02:16:21.813Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "1111",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2020-02-26T02:16:35.701Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "222",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2020-02-26T02:16:41.271Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "111",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2020-02-26T02:16:47.766Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "2222",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2020-02-26T02:16:52.679Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "3333",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2020-02-27T04:47:56.135Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "1111",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2020-02-27T04:48:17.615Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "\u0425\u0438\u043c. \u0447\u0438\u0441\u0442\u043a\u0430",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2020-02-27T04:48:30.685Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "\u041f\u043e\u0448\u0438\u0432 \u0438\u0437\u0434\u0435\u043b\u0438\u0439",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2020-02-27T04:48:49.449Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "\u0420\u0435\u043c\u043e\u043d\u0442",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2020-02-27T04:49:03.115Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "222",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2020-02-27T04:49:19.747Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "9",
+    "object_repr": "\u0418\u0437\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u043a\u043b\u044e\u0447\u0435\u0439",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2020-02-27T04:57:31.172Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "\u0420\u0435\u043c\u043e\u043d\u0442 \u0432\u0435\u0440\u0445\u043d\u0435\u0439 \u043e\u0434\u0435\u0436\u0434\u044b",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2020-02-27T04:57:51.411Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "\u0423\u0441\u043b\u0443\u0433\u0438 \u0430\u0442\u0435\u043b\u044c\u0435",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2020-02-27T04:58:39.026Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "10",
+    "object_repr": "\u0418\u0437\u0434\u0435\u043b\u0438\u044f \u0438\u0437 \u043a\u043e\u0436\u0438",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2020-02-27T04:58:50.016Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "11",
+    "object_repr": "\u0418\u0437\u0434\u0435\u043b\u0438\u044f \u0438\u0437 \u043c\u0435\u0445\u0430",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2020-02-27T04:59:09.838Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "12",
+    "object_repr": "\u0413\u043e\u043b\u043e\u0432\u043d\u044b\u0435 \u0443\u0431\u043e\u0440\u044b",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2020-02-27T05:24:49.208Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "10",
+    "object_repr": "\u0418\u0437\u0434\u0435\u043b\u0438\u044f \u0438\u0437 \u043a\u043e\u0436\u0438",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2020-02-27T08:22:24.083Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "13",
+    "object_repr": "\u041f\u043e\u043a\u0440\u0430\u0441\u043a\u0430 \u0438\u0437\u0434\u0435\u043b\u0438\u0439 \u0438\u0437 \u043a\u043e\u0436\u0438",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
   }
 }
 ]
