@@ -68,7 +68,7 @@
                                 </figure>
                             </div>
                             <div class="card-content">
-                                <p class="title is-5">{{ categoryChildren.name }}</p>
+                                <p class="title is-5"><a href="{{ categoryChildren.get_absolute_url }}">{{ categoryChildren.name }}</a> </p>
                                 <div class="content">
                                     {{ categoryChildren.description }}
                                 </div>
@@ -77,24 +77,15 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-            {% endfor %}
-
-
-
+                {% endfor %}
             </div>
-
-
-
+            <div class="columns is-multiline is-desktop">
+                {% for service in services %}
+                    <div class="column is-one-quarter">
+                        {{service.name}}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
