@@ -2,61 +2,97 @@
 {% load static %}
 {% load mptt_tags %}
 {% load account_tags %}
-{% block title %}Услуги{% endblock %}
+{% block title %}{{ block.super }} Услуги{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <style>
+        .image.is-128x128 {
+            margin: auto;
+            padding-top: 10px;
+        }
+
+    </style>
+
+{% endblock %}
+
+
 {% block content %}
-    <div class="column is-2">
-        <aside class="menu">
-            <p class="menu-label">Услуги</p>
-        </aside>
-        <ul id="menu" class="menu">
-            {% recursetree services %}
-                {% if not node.is_leaf_node %}
-                    <li class="dropdown">
-                        <a href="{% url services 'node.slug' %}" >
-                            {{ node.name }}
-                            <span class="icon">
-                                <i class="fas fa-chevron-circle-right"></i>
-                            </span>
-                        </a>
-                        <ul class="dropdown-content">
-                            {{children}}
-                        </ul>
-                    </li>
-                {% else %}
-                    <li><a href="{% url services 'node.slug' %}">{{ node.name }}</a></li>
+    <!-- "Хлебные крошки" -->
+    <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="{% url 'catalog:services' %}">Услуги</a></li>
+                {% if breathCrumb %}
+                    {% for node in breathCrumb %}
+                        <li><a href="{{ node.get_absolute_url }}">{{ node.name }}</a></li>
+                    {% endfor %}
+
                 {% endif %}
-            {% endrecursetree %}
-        </ul>
-
-
-
-
-
-
-    <!--
-
-        <ul class="menu-list">
-            {% recursetree services %}
-
-                {% if not node.is_leaf_node %}
-                    <li class="menu-item">
-                        <a>{{ node.name }}</a>
-                        <ul>{{children}}</ul>
-                    </li>
-
-                {% else %}
-                     <li><a>{{ node.name }}</a></li>
-                {% endif %}
-
-            {% endrecursetree %}
-        </ul>-->
-
-
-
+                <li class="is-active"><a href="#" aria-current="page">{{ serviceCategory.name }}</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="column">
+    <div class="columns">
+        <!-- колонка бокового меню с категориями услуг или товаров-->
+        <div class="column is-3">
+            <ul id="menu" class="menu">
+                {% recursetree serviceCategoryes %}
+                    {% if not node.is_leaf_node %}
+                        <li class="dropdown">
+                            <a href="{{ node.get_absolute_url }}">
+                                {{ node.name }}
+                                <span class="icon">
+                                    <i class="fas fa-chevron-circle-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-content">
+                                {{children}}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ node.get_absolute_url }}">{{ node.name }}</a></li>
+                    {% endif %}
+                {% endrecursetree %}
+            </ul>
+
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-desktop ">
+                {% for categoryChildren in serviceCategoryChildren %}
+                    <div class="column is-one-quarter">
+                        <div class="card">
+                            <div class="card-image media-center">
+                                <figure class="image is-128x128">
+                                    <img class="is-rounded" src="/{{ categoryChildren.image }}">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                {{ categoryChildren.name }}
 
 
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+            {% endfor %}
+
+
+
+            </div>
+
+
+
+        </div>
     </div>
 
 

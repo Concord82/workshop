@@ -10,10 +10,11 @@ class Category(MPTTModel):
     """ Абстрактный класс для общего описания категорий товаров и услуг"""
     name = models.CharField(_('name'), max_length=50, db_index=True)
     url_slug = models.SlugField(_('slug'), max_length=200, unique=True)
+    image = models.ImageField(_('Image'), upload_to='categories/%Y/%m-%d', default='../static/images/noimage.png')
+    description = models.TextField(_('description'), blank=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-    def get_absolute_url(self):
-        return reverse('catalog:product_list_by_category', args=[self.url_slug])
+
 
     def __str__(self):
         return self.name
@@ -25,6 +26,10 @@ class Category(MPTTModel):
 class ProductsCategory(Category):
     """ Товары реализуемые как для выполнения работ, так
     и в качетсве самостоятельных продаж"""
+
+    def get_absolute_url(self):
+        return reverse('catalog:product_list_by_category', args=[self.url_slug])
+
     class Meta:
         verbose_name = _('Product Category')
         verbose_name_plural = _('Products Categories')
@@ -32,6 +37,10 @@ class ProductsCategory(Category):
 
 class ServicesCategory(Category):
     """ Услуги выполняемые мастерами"""
+    def get_absolute_url(self):
+        return reverse('catalog:service_list_by_category', args=[self.url_slug])
+
+
     class Meta:
         verbose_name = _('Service Category')
         verbose_name_plural = _('Services Categories')

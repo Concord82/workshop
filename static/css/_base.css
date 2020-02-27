@@ -62,3 +62,7 @@ li.dropdown {
 	top:0;
 	opacity:1;
 }
+
+.breadcrumb{
+	margin-bottom: 15px;
+}
