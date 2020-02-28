@@ -64,7 +64,11 @@
                         <div class="card">
                             <div class="card-image media-center">
                                 <figure class="image is-128x128">
-                                    <img class="is-rounded" src="/{{ categoryChildren.image }}">
+                                    {% if categoryChildren.image == '../static/images/noimage.png' %}
+                                        <img class="is-rounded" src="/{{ categoryChildren.image }}">
+                                    {% else %}
+                                        <img class="is-rounded" src="{% get_media_prefix %}{{ categoryChildren.image }}">
+                                    {% endif %}
                                 </figure>
                             </div>
                             <div class="card-content">

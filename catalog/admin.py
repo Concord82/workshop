@@ -1,6 +1,7 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin, TreeRelatedFieldListFilter
 from django_mptt_admin.admin import DjangoMpttAdmin
+from sorl.thumbnail.admin import AdminImageMixin
 
 from .models import ProductsCategory, ServicesCategory, Products, Services
 from .forms import ProductForm, ServiceForm
@@ -8,13 +9,24 @@ from .forms import ProductForm, ServiceForm
 
 
 @admin.register(ProductsCategory)
-class ProductsCategorAdmin(DjangoMpttAdmin):
+class ProductsCategorAdmin(DjangoMpttAdmin, AdminImageMixin):
     prepopulated_fields = {'url_slug': ('name',)}
 
 
 @admin.register(ServicesCategory)
 class ServicesCategorAdmin(DjangoMpttAdmin):
     prepopulated_fields = {'url_slug': ('name',)}
+    fieldsets = (
+            (None, {'fields': (
+            'name',
+            'url_slug',
+            'image',
+            'image_tag',
+            'description',
+            'parent'
+        )}),
+    )
+    readonly_fields = ['image_tag']
 
 
 @admin.register(Products)
