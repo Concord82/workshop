@@ -81,6 +81,7 @@ class ProductsServices(models.Model):
     """ товары реализуемые организацией """
     name = models.CharField(_('name'), max_length=200, db_index=True)
     slug = models.SlugField(_('slug'), max_length=200, db_index=True)
+    image = models.ImageField(_('Image'), upload_to='products/%Y/%m-%d', default='../static/images/avatar/unnamed.jpg')
     description = models.TextField(_('description'), blank=True)
     price = models.DecimalField(_('Price'), max_digits=10, decimal_places=2)
     available = models.BooleanField(_('Available'), default=True)
@@ -89,6 +90,30 @@ class ProductsServices(models.Model):
 
     def get_absoluete_url(self):
         return reverse('catalog:product_detail', args=[self.id, self.slug])
+
+    def image_tag(self):
+        return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.image))
+
+    image_tag.short_description = _('Image product')
+    image_tag.allow_tags = True
+
+    def save(self, *args, **kwargs):
+        # Opening the uploaded image
+        im = Image.open(self.image)
+
+        output = BytesIO()
+        # Resize/modify the image
+        im = im.resize((128, 128))
+        # after modifications, save it to the output
+        im.save(output, format='JPEG', quality=100)
+
+        # change the imagefield value to be the newley modifed image value
+        self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                          sys.getsizeof(output), None)
+
+        output.seek(0)
+
+        super(ProductsServices, self).save()
 
     class Meta:
         abstract = True
@@ -105,15 +130,13 @@ class Products(ProductsServices):
     )
     category = models.ForeignKey(ProductsCategory, verbose_name=_('Product Category'), related_name='Product_Category',
                                  on_delete=models.CASCADE)
-    image = models.ImageField(_('Image'), upload_to='products/%Y/%m-%d', default='../static/images/avatar/unnamed.jpg')
+
     vendor_code = models.CharField(_('Vendor Code'), max_length=32, blank=True)
     unit = models.IntegerField(_('Unit'), choices=UNIT_CHOISE)
 
-    def image_tag(self):
-        return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.image))
+    def get_absolute_url(self):
+        return reverse('catalog:product_detail', args=[self.id, self.slug])
 
-    image_tag.short_description = _('Image product')
-    image_tag.allow_tags = True
 
     class Meta:
         ordering = ('name',)

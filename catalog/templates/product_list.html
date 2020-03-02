@@ -22,14 +22,18 @@
     <div class="container">
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-                <li><a href="{% url 'catalog:services' %}">Услуги</a></li>
+                {% if type == 1 %}
+                    <li><a href="{% url 'catalog:services' %}">Услуги</a></li>
+                {% else %}
+                    <li><a href="{% url 'catalog:product_list' %}">Товары</a></li>
+                {% endif %}
                 {% if breathCrumb %}
                     {% for node in breathCrumb %}
                         <li><a href="{{ node.get_absolute_url }}">{{ node.name }}</a></li>
                     {% endfor %}
 
                 {% endif %}
-                <li class="is-active"><a href="#" aria-current="page">{{ serviceCategory.name }}</a></li>
+                <li class="is-active"><a href="#" aria-current="page">{{ Category.name }}</a></li>
             </ul>
         </nav>
     </div>
@@ -37,7 +41,7 @@
         <!-- колонка бокового меню с категориями услуг или товаров-->
         <div class="column is-3">
             <ul id="menu" class="menu">
-                {% recursetree serviceCategoryes %}
+                {% recursetree Categoryes %}
                     {% if not node.is_leaf_node %}
                         <li class="dropdown">
                             <a href="{{ node.get_absolute_url }}">
@@ -59,7 +63,7 @@
         </div>
         <div class="column">
             <div class="columns is-multiline is-desktop ">
-                {% for categoryChildren in serviceCategoryChildren %}
+                {% for categoryChildren in CategoryChildrens %}
                     <div class="column is-one-quarter">
                         <div class="card">
                             <div class="card-image media-center">
@@ -84,9 +88,26 @@
                 {% endfor %}
             </div>
             <div class="columns is-multiline is-desktop">
-                {% for service in services %}
+                {% for item in items %}
                     <div class="column is-one-quarter">
-                        {{service.name}}
+                        <div class="card">
+                            <div class="card-image media-center">
+                                <figure class="image is-128x128">
+                                    {% if item.image == '../static/images/avatar/unnamed.jpg' %}
+                                        <img class="is-rounded" src="/{{ item.image }}">
+                                    {% else %}
+                                        <img class="is-rounded" src="{% get_media_prefix %}{{ item.image }}">
+                                    {% endif %}
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <p class="title is-5"><a href="{{ item.get_absolute_url }}"> {{item.name}}</a></p>
+                                <div class="content">
+                                    {{ item.description }}
+                                    {{ item.price }} р. {{ item.get_unit_display }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             </div>

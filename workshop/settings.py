@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mptt',
     'django_mptt_admin',
     'catalog.apps.CatalogConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,5 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 # default is 10 pixels
 MPTT_ADMIN_LEVEL_INDENT = 20
+
+CART_SESSION_ID = 'cart'

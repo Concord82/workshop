@@ -2,38 +2,55 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import ProductsCategory, Products, ServicesCategory, Services
+
+from cart.forms import CartAddProductForm
 # Create your views here.
 
-
-def product_list(request, category_slug=None):
-    category = None
-    categories = ProductsCategory.objects.filter(parent_id=None)
-
-    print(categories)
-
-    for category in categories:
-        category_child = category.get_children()
-        print (category_child)
+@login_required
+def product_list(request, products_slug=None):
+    productCategory = None
+    productCategoryChildren = None
+    breathCrumb = None
 
 
 
+    ProductCategories = ProductsCategory.objects.all()
 
+    products = Products.objects.all()
 
-    categories = ProductsCategory.objects.all()
+    if products_slug:
+        productCategory = get_object_or_404(ProductsCategory, url_slug=products_slug)
 
-    cat_test = ProductsCategory.objects.get(id=1)
-    for prod in cat_test.get_children():
-        print(prod.name)
+        productCategoryChildren = productCategory.get_children
 
-    if category_slug:
-        category = get_object_or_404(ProductsCategory, url_slug=category_slug)
+        products = products.filter(category=productCategory)
 
-    return render(
-        request,
-        'old/_base_admin.html',
-        {'category': category,
-         'categories': categories}
-    )
+        breathCrumb = productCategory.get_ancestors(ascending=False)
+
+    return render(request, 'product_list.html', {'type': 2,
+                                          'breathCrumb': breathCrumb,
+                                          'Category': productCategory,
+                                          'CategoryChildrens': productCategoryChildren,
+                                          'Categoryes': ProductCategories,
+                                          'items': products})
+
+@login_required
+def product_detail(request, id, slug):
+    product = get_object_or_404(Products, id=id, slug=slug, available=True)
+
+    breathCrumb = product.category.get_ancestors(ascending=False)
+
+    ProductCategories = ProductsCategory.objects.all()
+
+    cart_product_form = CartAddProductForm()
+
+    return render(request, 'detail.html', {'type': 1,
+                                           'product': product,
+                                           'Categoryes': ProductCategories,
+                                           'breathCrumb': breathCrumb,
+                                           'cart_product_form': cart_product_form
+                                           })
+
 
 @login_required
 def service_list(request, services_slug=None):
@@ -56,11 +73,11 @@ def service_list(request, services_slug=None):
 
         breathCrumb = serviceCategory.get_ancestors(ascending=False)
 
-    return render(request, 'product_list.html',
-                  {'breathCrumb': breathCrumb,
-                   'serviceCategory': serviceCategory,
-                   'serviceCategoryChildren': serviceCategoryChildren,
-                   'serviceCategoryes': serviceCategoryes,
-                   'services': services})
+    return render(request, 'product_list.html', {'type': 1,
+                                                 'breathCrumb': breathCrumb,
+                                                 'Category': serviceCategory,
+                                                 'CategoryChildrens': serviceCategoryChildren,
+                                                 'Categoryes': serviceCategoryes,
+                                                 'items': services})
 
 
