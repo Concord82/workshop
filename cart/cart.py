@@ -17,6 +17,34 @@ class Cart(object):
             }
         self.cart = cart
 
+    def __iter__(self):
+        """Проходим по товарам корзины и получаем соответствующие объекты Product."""
+        product_ids = self.cart['product'].keys()
+        services_ids = self.cart['services'].keys()
+        # получение объектов products, services и добавление их в корзину
+        products = Products.objects.filter(id__in=product_ids)
+        services = Services.objects.filter(id__in=services_ids)
+
+        cart = self.cart.copy()
+
+        for product in products:
+            cart['product'][str(product.id)]['product'] = product
+        for service in services:
+            cart['services'][str(service.id)]['service'] = service
+
+        for type_tov in ['product', 'services']:
+            for item in cart[type_tov].values():
+                if type_tov == 'product':
+                    item['type_tov'] = 1
+                else:
+                    item['type_tov'] = 2
+                item['price'] = Decimal(item['price'])
+                item['total_price'] = item['price'] * item['quantity']
+                yield item
+
+
+
+
     def product_add(self, product, quantity=1, update_quantity=False):
         """Добавление товара в корзину или обновление его количества."""
         product_id = str(product.id)
