@@ -13,14 +13,14 @@ class Cart(object):
             # Сохраняем в сессии пустую корзину.
             cart = self.session[settings.CART_SESSION_ID] = {
                 'product': {},
-                'services': {}
+                'service': {}
             }
         self.cart = cart
 
     def __iter__(self):
         """Проходим по товарам корзины и получаем соответствующие объекты Product."""
         product_ids = self.cart['product'].keys()
-        services_ids = self.cart['services'].keys()
+        services_ids = self.cart['service'].keys()
         # получение объектов products, services и добавление их в корзину
         products = Products.objects.filter(id__in=product_ids)
         services = Services.objects.filter(id__in=services_ids)
@@ -30,9 +30,9 @@ class Cart(object):
         for product in products:
             cart['product'][str(product.id)]['product'] = product
         for service in services:
-            cart['services'][str(service.id)]['service'] = service
+            cart['service'][str(service.id)]['service'] = service
 
-        for type_tov in ['product', 'services']:
+        for type_tov in ['product', 'service']:
             for item in cart[type_tov].values():
                 if type_tov == 'product':
                     item['type_tov'] = 1

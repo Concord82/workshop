@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import ProductsCategory, Products, ServicesCategory, Services
 
-from cart.forms import CartAddProductForm
+from cart.forms import CartAddProductForm, CartAddServiceForm
 # Create your views here.
 
 @login_required
@@ -12,12 +12,8 @@ def product_list(request, products_slug=None):
     productCategoryChildren = None
     breathCrumb = None
 
-
-
     ProductCategories = ProductsCategory.objects.all()
-
     products = Products.objects.all()
-
     if products_slug:
         productCategory = get_object_or_404(ProductsCategory, url_slug=products_slug)
 
@@ -81,3 +77,18 @@ def service_list(request, services_slug=None):
                                                  'items': services})
 
 
+@login_required
+def service_detail(request, id, slug):
+    service = get_object_or_404(Services, id=id, slug=slug, available=True)
+
+    breath_crumb = service.category.get_ancestors(ascending=False)
+    product_categories = ServicesCategory.objects.all()
+
+    cart_service_form = CartAddServiceForm()
+
+    return render(request, 'detail.html', {'type': 1,
+                                           'product': service,
+                                           'Categoryes': product_categories,
+                                           'breathCrumb': breath_crumb,
+                                           'cart_product_form': cart_service_form
+                                           })

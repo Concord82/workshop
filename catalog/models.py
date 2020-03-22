@@ -45,7 +45,6 @@ class Category(MPTTModel):
 
         super(Category, self).save()
 
-
     def __str__(self):
         return self.name
 
@@ -70,8 +69,6 @@ class ServicesCategory(Category):
     def get_absolute_url(self):
         return reverse('catalog:service_list_by_category', args=[self.url_slug])
 
-
-
     class Meta:
         verbose_name = _('Service Category')
         verbose_name_plural = _('Services Categories')
@@ -88,8 +85,8 @@ class ProductsServices(models.Model):
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), auto_now=True)
 
-    def get_absoluete_url(self):
-        return reverse('catalog:product_detail', args=[self.id, self.slug])
+#    def get_absoluete_url(self):
+#        return reverse('catalog:product_detail', args=[self.id, self.slug])
 
     def image_tag(self):
         return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.image))
@@ -148,6 +145,9 @@ class Products(ProductsServices):
 class Services(ProductsServices):
     category = models.ForeignKey(ServicesCategory, verbose_name=_('Service Category'), related_name='Service_Category',
                                  on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('catalog:service_detail', args=[self.id, self.slug])
 
     class Meta:
         ordering = ('name',)

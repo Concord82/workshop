@@ -1,10 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load account_tags %}
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <!--<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
 
-</body>
-</html>
+
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{% url 'dashboard' %}">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Заказы</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'catalog:product_list' %}">Товары</a>
+                        <a class="navbar-item" href="{% url 'catalog:services' %}">Услуги</a>
+
+                    </div>
+                </div>
+
+
+
+                <a class="navbar-item">Клиенты</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Склад</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">Товары на складах</a>
+                        <a class="navbar-item">Инвентаризация</a>
+                        <a class="navbar-item">Оформление прихода</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">Отчет по складу</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+
+                {% offices_select request.session.current_office  %}
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">{{ user.get_short_name }}</a>
+                    <div class="navbar-dropdown">
+
+                        <a class="navbar-item" href="{% url 'password_change' %}">Смена пароля</a>
+                        <a class="navbar-item" href="{% url "logout" %}">Выход</a>
+                    </div>
+                </div>
+                <!--
+                <div class="buttons">
+                    <a class="button is-primary"><strong>Sign up</strong></a>
+                    <a class="button is-light">Log in</a>
+                </div> -->
+
+            </div>
+        </div>
+    </nav>

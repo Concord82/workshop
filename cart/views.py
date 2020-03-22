@@ -1,15 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
-
-
 from django.shortcuts import render, redirect, get_object_or_404
-
 
 from django.views.decorators.http import require_POST
 from catalog.models import Products, Services
 from .cart import Cart
 from .forms import CartAddProductForm
+
 
 @require_POST
 def cart_add(request, product_id):
@@ -36,4 +34,5 @@ def cart_detail(request):
     cart = Cart(request)
 
     print (cart.cart['product'])
+    print(cart.cart)
     return render(request, 'cart/detail.html', {'cart': cart})
